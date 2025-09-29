@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:practice_app/router/app_routes.dart';
+import 'package:practice_app/screens/screens.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -17,28 +19,39 @@ class HomeScreen extends StatelessWidget {
         height: size.height,
         child: Column(
           children: [        
+
             Image.asset('assets/Landscape.jpg', fit: BoxFit.cover),
-            SizedBox(
-              height: size.height * .4,
-              child: ListView.separated(
-              itemBuilder: (context, index) => ListTile(
-                title: Text(menuOptions[index].name),
-                leading: Icon(menuOptions[index].icon, color: Colors.teal),
-                onTap: () {
-              
-                //final route = MaterialPageRoute(
-                //builder: (context) => Listview1Screen()
-                //);  
-                //Navigator.push(context, route);
-              
-                Navigator.pushNamed(context, menuOptions[index].route);
-              
-                },
+
+            Container(
+              color: Colors.blue.shade100,
+              height: size.height * .5,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListView.separated(
+                  itemCount: menuOptions.length,
+                  separatorBuilder: (_ , __) => Divider(),
+                  itemBuilder: (context, index) => ListTile(
+                    title: Text(menuOptions[index].name),
+                    subtitle: Text(menuOptions[index].description),
+                    leading: Icon(menuOptions[index].icon, color: Colors.teal),
+                    onTap: () => Navigator.pushNamed(context, menuOptions[index].route),
+                  ),
+                ),
               ),
-              separatorBuilder: (_ , __) => Divider(),
-              itemCount: menuOptions.length
-              ),
+            ),
+
+            IconButton(
+              onPressed: () {
+                //NAVEGACION NORMAL
+                Navigator.push(context,
+                  MaterialPageRoute(
+                    builder: (context) => ListaDinamicaScreen(),
+                  ),
+                );
+              }, 
+              icon: Icon(Icons.add)
             )
+
           ],
         ),
       )

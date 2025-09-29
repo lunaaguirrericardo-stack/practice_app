@@ -9,12 +9,10 @@ class AppRoutes {
   static const initialRoute = 'home';
 
   static final menuOptions = <MenuOption>[
-    
-    MenuOption(route: 'lista_dinamica', name: 'ListaDinamica', screen: ListaDinamicaScreen(), icon: Icons.add_to_photos_outlined),
-    MenuOption(route: 'formulario', name: 'Formulario', screen: FormulariosScreen(), icon: Icons.input_outlined),
-    MenuOption(route: 'dependencias', name: 'DependenciasExternas', screen: DependenciasExternasScreen(), icon: Icons.add_box_outlined),
-    MenuOption(route: 'consumo', name: 'ConsumoApi', screen: ConsumoApiScreen(), icon: Icons.auto_awesome_outlined)
-
+    MenuOption(route: 'lista_dinamica', name: 'ListaDinamica', screen: ListaDinamicaScreen(), icon: Icons.add_to_photos_outlined, description: 'Descripción de la lista dinámica'),
+    MenuOption(route: 'formulario', name: 'Formulario', screen: FormulariosScreen(), icon: Icons.input_outlined, description: 'Descripción del formulario'),
+    MenuOption(route: 'dependencias', name: 'DependenciasExternas', screen: DependenciasExternasScreen(), icon: Icons.add_box_outlined, description: 'Descripción de las dependencias externas'),
+    MenuOption(route: 'consumo', name: 'ConsumoApi', screen: ConsumoApiScreen(), icon: Icons.auto_awesome_outlined, description: 'Descripción del consumo de API')
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes(){

@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
       title: 'Practice app',
       initialRoute: AppRoutes.initialRoute,
       routes: AppRoutes.getAppRoutes(),
-      onGenerateRoute:  AppRoutes.onGenerateRoute,
     );
   }
 }
