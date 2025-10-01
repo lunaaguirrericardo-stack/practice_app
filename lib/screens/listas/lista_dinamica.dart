@@ -88,11 +88,9 @@ class _ListaDinamicaScreenState extends State<ListaDinamicaScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+
       appBar: AppBar(
-        title: Text('Lista'),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
-        centerTitle: true,
+        title: customText(text: 'Lista'),
         actions: [
           IconButton(
             onPressed: () {
@@ -108,6 +106,7 @@ class _ListaDinamicaScreenState extends State<ListaDinamicaScreen> {
           ),
         ],
       ),
+
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10),
         child: Column(

@@ -20,12 +20,7 @@ class _DependenciasExternasScreenState extends State<DependenciasExternasScreen>
       Size size = MediaQuery.of(context).size;
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text('Dependencias Externas'),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: customText(text: 'Dependencias Externas')),
 
       body: SizedBox(
         width: size.width,

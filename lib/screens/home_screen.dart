@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: SizedBox(
-                height: size.height * 0.41,
+                height: size.height * 0.55,
                 child: ListView.separated(
                   padding: EdgeInsets.zero,
                   itemCount: menuOptions.length,
@@ -112,11 +112,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Divider(),
-            ),
+           
 
           ],
         ),

@@ -1,0 +1,1 @@
+export 'pokemones/pokemones_provider.dart';

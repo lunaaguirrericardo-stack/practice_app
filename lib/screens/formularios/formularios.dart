@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_app/widgets/widgets.dart';
 
 class FormulariosScreen extends StatefulWidget {
 
@@ -44,15 +45,10 @@ Widget build(BuildContext context) {
 
   // Devolvemos un Scaffold con un TextField
   return Scaffold(
-    appBar: AppBar(
-      title: Text('Formularios'),
-      backgroundColor: Colors.indigo,
-      foregroundColor: Colors.white,
-      centerTitle: true,
-    ),
-    body:  
     
-    SizedBox(
+    appBar: AppBar(title: customText(text: 'Formularios')),
+
+    body: SizedBox(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
