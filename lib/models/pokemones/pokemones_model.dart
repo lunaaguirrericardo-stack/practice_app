@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-
-//Esttructura del JSON para almancenar los pokemones (consumo API)
+//Estructura del JSON para almacenar la lista de pokemones (consumo API)
 class PokemonesModel {
     int count;
     String next;

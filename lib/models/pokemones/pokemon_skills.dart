@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+
+//Estructura del JSON para almacenar las habilidades de los pokemones (consumo API)
 class PokemonModel {
     List<Ability> abilities;
     int baseExperience;

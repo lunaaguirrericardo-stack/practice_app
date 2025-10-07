@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 import 'package:practice_app/provider/exports_provider.dart';
-import 'package:practice_app/screens/consumos/pokemones_screen.dart';
+import 'package:practice_app/screens/consumos/pokemon_screen.dart';
 import 'package:practice_app/widgets/widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -42,26 +42,37 @@ class _ConsumoApiScreenState extends State<ConsumoApiScreen> {
 
             SizedBox(
               height: size.height * 0.8,
+              width: size.width,
               child: ListView.builder(
+                // scrollDirection: Axis.horizontal,
                 itemCount: pokemonesProvider.pokemones?.results.length,
                 itemBuilder: (context, index) {
                   final pokemon = pokemonesProvider.pokemones?.results[index];
+
                   return CustomCard(
                     elevation: 1,
                     borderRadius: 10,
-                    child: ListTile(
-                      leading: customText(text: '${index + 1}'),
-                      title: customText(text: 'Nombre: ${pokemon?.name}'),
-                      subtitle: customText(text: 'URL: ${pokemon?.url}'),
-                      trailing: IconButton(
-                        icon: Icon(Icons.arrow_forward_ios, size: 15, color: Colors.indigo,), 
-                        onPressed: () {
-                          Navigator.push(context,
-                            MaterialPageRoute(
-                              builder: (context) => PokemonesScreen(name: pokemon?.name ?? ''),
-                            ),
-                          );
-                        }
+                    childPadding: 0,
+                    width: size.width,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: ListTile(
+                        contentPadding: EdgeInsets.zero,
+                        trailing: IconButton(
+                          onPressed: () {
+                            // Navegación básica - va a la pantalla y permite volver
+                            Navigator.push(context,
+                                MaterialPageRoute(
+                                  builder: (context) => PokemonScreen(name: pokemon!.name),
+                                ),
+                              );
+                        
+                          }, 
+                          icon: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.indigo)
+                        ),
+                        leading: customText(text: '${index + 1}'),
+                        title: customText(text: 'Nombre: ${pokemon?.name}'),
+                        subtitle: customText(text: 'URL: ${pokemon?.url}'),
                       ),
                     ),
                   );

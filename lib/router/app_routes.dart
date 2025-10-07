@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practice_app/models/exports_models.dart';
-import 'package:practice_app/screens/screens.dart';
+import 'package:practice_app/screens/exports_screens.dart';
 
 
 //Se agrega un underscore al inicio de la clase si se desea hacer privado

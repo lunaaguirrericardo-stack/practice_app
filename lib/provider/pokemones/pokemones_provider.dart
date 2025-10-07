@@ -11,6 +11,9 @@ class PokemonesProvider with ChangeNotifier {
   PokemonesModel? _pokemones;
   PokemonesModel? get pokemones => _pokemones;
 
+  PokemonModel? _pokemon;
+  PokemonModel? get pokemon => _pokemon;
+
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
@@ -54,18 +57,14 @@ class PokemonesProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  PokemonModel? _pokemon;
-  PokemonModel? get pokemon => _pokemon;
-
   Future<void> getPokemon({required String name}) async {
     _isLoading = true;
     _errorMessage = null;
     notifyListeners();
 
     try {
-      final response = await http.get(
-        Uri.parse('$apiBase/pokemon/$name'),
-      );
+
+      final response = await http.get(Uri.parse('$apiBase/pokemon/$name'));
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
         log('Response successful: ${response.statusCode}');
@@ -87,4 +86,5 @@ class PokemonesProvider with ChangeNotifier {
       notifyListeners();
     }
   }
+
 }
