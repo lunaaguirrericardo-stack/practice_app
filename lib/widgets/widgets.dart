@@ -1,1 +1,0 @@
-export 'package:practice_app/widgets/custom_text.dart';

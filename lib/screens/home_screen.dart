@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
-import 'package:practice_app/widgets/widgets.dart';
-import 'package:practice_app/router/app_routes.dart';
+import 'package:practice_app/screens/exports_screens.dart';
+import 'package:practice_app/widgets/exports_widgets.dart';
 
 class HomeScreen extends StatelessWidget {
    
@@ -10,7 +9,6 @@ class HomeScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-      final menuOptions= AppRoutes.menuOptions;
       Size size = MediaQuery.of(context).size;
     return Scaffold(
 
@@ -28,10 +26,8 @@ class HomeScreen extends StatelessWidget {
               child: Stack(
               fit: StackFit.expand,
               children: [
-
                 Image.asset('assets/Landscape.jpg', fit: BoxFit.cover),
-
-                  // CustomText centrado sobre la imagen
+                // CustomText centrado sobre la imagen
                 Positioned(
                   bottom: 10, // distancia desde la parte inferior
                   left: 15,   // distancia desde la parte izquierda
@@ -49,69 +45,90 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 10),
 
             Padding(
-              padding: const EdgeInsets.only(left: 16, top: 4),
-              child: customText(
-                text: '¿Que te gustaría hacer?',
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                textAlign: TextAlign.left,
-              ),
-            ),
+              padding: const EdgeInsets.only(left: 16, top: 4, right: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Divider(),
-            ),
-              
-            // Contenedor inferior con ListView
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SizedBox(
-                height: size.height * 0.55,
-                child: ListView.separated(
-                  padding: EdgeInsets.zero,
-                  itemCount: menuOptions.length,
-                  separatorBuilder: (_, __) => const Divider(),
-
-                  itemBuilder: (context, index) => ListTile(
-
-                    contentPadding: EdgeInsets.zero,
-
-                    onTap: () => Navigator.pushNamed(context, menuOptions[index].route),
-                    
-                    title: customText(
-                      text: menuOptions[index].name,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                
-                    subtitle: customText(
-                      text: menuOptions[index].description,
-                      fontSize: 13,
-                      color: Colors.grey[700]!,
-                    ),
-
-                    leading: CustomCard(
-                      elevation: 0,
-                      childPadding: 0,
-                      borderRadius: 10,
-                      width: size.width * .15,
-                      height: size.width * .15,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                        menuOptions[index].imagePath,
-                        fit: BoxFit.cover,
-                        ),
-                      )
-                    ),
-
-                    trailing: Icon(Icons.arrow_forward_ios, size: 25),
-
+                  customText(
+                    text: '¿Que te gustaría hacer?',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    textAlign: TextAlign.left,
                   ),
-                ),
+              
+                  Divider(),
+              
+                  //LISTAS
+                  menuTile(
+                    size: size, 
+                    onTap: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(
+                          builder: (context) => ListaDinamicaScreen(),
+                        ),
+                      );       
+                    },
+                    title: 'Lista dinámica', 
+                    image: 'assets/image1.jpg', 
+                    subtitle: 'Se muestra ejemplo de lista dinámica'
+                  ),
+              
+                  Divider(),
+              
+                  menuTile(
+                    size: size, 
+                    onTap: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(
+                          builder: (context) => FormulariosScreen(),
+                        ),
+                      );       
+                    },
+                    title: 'Formulario', 
+                    image: 'assets/image2.jpg', 
+                    subtitle: 'Se muestra ejemplo de un formulario'
+                  ),
+              
+                  Divider(),
+              
+                  menuTile(
+                    size: size, 
+                    onTap: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(
+                          builder: (context) => DependenciasExternasScreen(),
+                        ),
+                      );       
+                    },
+                    title: 'Dependencias Externas', 
+                    image: 'assets/image3.jpg', 
+                    subtitle: 'Descripción de las dependencias externas'
+                  ),
+              
+                  Divider(),
+              
+                  menuTile(
+                    size: size, 
+                    onTap: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(
+                          builder: (context) => ConsumoApiScreen(),
+                        ),
+                      );       
+                    },
+                    title: 'Consumo Api', 
+                    image: 'assets/image4.jpg', 
+                    subtitle: 'Descripción del consumo de API'
+                  ),
+              
+                  Divider(),
+
+                ],
               ),
             ),
+
+            
            
 
           ],

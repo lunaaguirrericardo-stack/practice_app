@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
-import 'package:practice_app/widgets/widgets.dart';
+import 'package:practice_app/widgets/exports_widgets.dart';
 
 class ListaDinamicaScreen extends StatefulWidget {
    

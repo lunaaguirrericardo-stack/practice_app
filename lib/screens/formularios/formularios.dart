@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:practice_app/widgets/widgets.dart';
+import 'package:practice_app/widgets/exports_widgets.dart';
 
 class FormulariosScreen extends StatefulWidget {
 

@@ -1,6 +1,6 @@
 import 'package:animated_icon_button/animated_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:practice_app/widgets/custom_text.dart';
+import 'package:practice_app/widgets/disenos/texts/custom_text.dart';
 import 'package:flutter_custom_cards/flutter_custom_cards.dart';
 
 class DependenciasExternasScreen extends StatefulWidget {
